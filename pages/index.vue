@@ -6,7 +6,7 @@
         nuxtjs
       </h1>
       <h2 class="subtitle">
-        My astonishing Nuxt.js project
+        Basic stuff for the things and much more stuffs...
       </h2>
       <div class="links">
         <a

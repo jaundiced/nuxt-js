@@ -88,5 +88,3 @@ sw.*
 # Mac OSX
 .DS_Store
 
-# Local key values
-.assets/config/local.keys/json

@@ -6,17 +6,17 @@
       <i class="far fa-clipboard fa-2x text-orange-400"></i>
       <span class="ml-1 text-lg text-blue-200 font-semibold ml-4">StoryBlok</span>
     </div>
-    <div class="block lg:hidden" v-show="this.$route.name == 'index'">
-      <i class="fas fa-bars fa-2x text-orange-400" @click="toggleMenu"></i>
+    <div class="block md:hidden">
+      <i class="fas fa-bars fa-2x text-orange-400" @click="toggleMenu" v-show="showMobileMenu"></i>
     </div>
 
     <div
       id="nav-content"
-      class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0"
+      class="w-full flex-grow md:flex md:items-center md:w-auto hidden md:block pt-6 md:pt-0"
       v-show="this.$route.name == 'index'"
     >
       <ul
-        class="list-reset lg:flex justify-end flex-1 items-center font-semibold"
+        class="list-reset md:flex justify-end flex-1 items-center font-semibold"
       >
         <li>
           <a @click="navigateToAnchor('home', 'teaser')" :class="(activeNavSelection == 'home') ? activeLinkListItem :  inActiveLinkListItem">Home</a>
@@ -33,7 +33,7 @@
       </ul>
     </div>
     <div id="articleSummaryNav" v-show="this.$route.name != 'index'">
-      <ul class="list-reset lg:flex justify-end flex-1 items-center font-semibold">
+      <ul class="list-reset md:flex justify-end flex-1 items-center font-semibold">
         <li><nuxt-link to="/" :class="inActiveLinkListItem">Home</nuxt-link></li>
       </ul>
     </div>
@@ -48,6 +48,11 @@ export default {
       activeNavSelection: "home",
       activeLinkListItem: "text-blue-600 pr-4",
       inActiveLinkListItem: "text-blue-200 pr-4",
+    }
+  },
+  computed: {
+    showMobileMenu: function () {
+      return this.$route.name === "index";
     }
   },
   methods: {

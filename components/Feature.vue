@@ -1,8 +1,8 @@
 <template>
   <div
     v-editable="blok"
-    class="relative w-48 h-64 m-5 bg-white shadow-lg">
-    <div class="flex items-center w-48 h-20 bg-blue-100">
+    class="relative w-full md:w-48 h-64 m-5 bg-white shadow-lg">
+    <div class="flex items-center w-full md:w-48 h-20 bg-blue-100">
        <img
         class="mx-auto"
         :src="blok.image"> 

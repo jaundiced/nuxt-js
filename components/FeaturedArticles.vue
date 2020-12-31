@@ -1,9 +1,11 @@
 <template>
   <section>  
   <div v-editable="blok" class="container mx-auto px-6 py-20">
-    <p class="text-xl font-bold text-center text-blue-100 mb-8">
-      {{blok.title}}
-    </p>
+    <a name="featured-articles" id="featured-articles">
+      <p class="text-xl font-bold text-center text-blue-100 mb-8">
+        {{blok.title}}
+      </p>
+    </a>
     <div class="flex flex-wrap">
       <ul class="flex justify-center flex-wrap">
         <li

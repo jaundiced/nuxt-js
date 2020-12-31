@@ -1,13 +1,11 @@
 <template>
 <div class="container mx-auto">
-<a name="feature-grid" id="feature-grid">&nbsp;</a>
+<a name="featured-videos" id="featured-videos">&nbsp;</a>
   <ul
-    v-editable="blok"
-    class="flex justify-center flex-wrap">
+    v-editable="blok">
     <li
       :key="blok._uid"
-      v-for="blok in blok.columns"
-      class="flex-auto px-6">
+      v-for="blok in blok.video_item">
       <component :blok="blok" :is="blok.component" />
     </li>
   </ul>

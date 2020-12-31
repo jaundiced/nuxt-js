@@ -17,50 +17,17 @@
       <ul
         class="list-reset lg:flex justify-end flex-1 items-center font-semibold"
       >
-        <li
-          :class="
-            this.$route.name == 'index'
-              ? activeLinkListItem
-              : inActiveLinkListItem
-          "
-        >
-          <nuxt-link class="text-blue-200" to="/">Home</nuxt-link>
+        <li>
+          <a @click="navigateToAnchor('home', 'teaser')" :class="(activeNavSelection == 'home') ? activeLinkListItem :  inActiveLinkListItem">Home</a>
         </li>
-        <li
-          :class="
-            this.$route.name == 'services'
-              ? activeLinkListItem
-              : inActiveLinkListItem
-          "
-        >
-          <nuxt-link class="text-blue-200" to="/services">Services</nuxt-link>
+        <li>
+          <a @click="navigateToAnchor('feature-grid','feature-grid')" :class="(activeNavSelection == 'feature-grid') ? activeLinkListItem :  inActiveLinkListItem">Features</a>
         </li>
-        <li
-          :class="
-            this.$route.name == 'projects'
-              ? activeLinkListItem
-              : inActiveLinkListItem
-          "
-        >
-          <nuxt-link class="text-blue-200" to="/projects">Projects</nuxt-link>
+        <li>
+          <a @click="navigateToAnchor('featured-articles','featured-articles')" :class="(activeNavSelection == 'featured-articles') ? activeLinkListItem :  inActiveLinkListItem">Articles</a>
         </li>
-        <li
-          :class="
-            this.$route.name == 'team'
-              ? activeLinkListItem
-              : inActiveLinkListItem
-          "
-        >
-          <nuxt-link class="text-blue-200" to="/team">Team</nuxt-link>
-        </li>
-        <li
-          :class="
-            this.$route.name == 'about'
-              ? activeLinkListItem
-              : inActiveLinkListItem
-          "
-        >
-          <nuxt-link class="text-blue-200" to="/about">About</nuxt-link>
+        <li>
+          <a @click="navigateToAnchor('featured-videos','featured-videos')" :class="(activeNavSelection == 'featured-videos') ? activeLinkListItem :  inActiveLinkListItem">Videos</a>
         </li>
       </ul>
     </div>
@@ -72,14 +39,19 @@ export default {
   name: "NavBar",
   data() {
     return {
-      activeLinkListItem: "mr-6 p-1 border-b-2 border-amber-500",
-      inActiveLinkListItem: "mr-6 p-1",
-      showMenu: false,
+      activeNavSelection: "home",
+      activeLinkListItem: "text-blue-600 pr-4",
+      inActiveLinkListItem: "text-blue-200 pr-4",
     }
   },
   methods: {
     toggleMenu() {
       document.getElementById("nav-content").classList.toggle("hidden")
+    },
+    navigateToAnchor(link, anchorName) {
+      console.log(`navigateToAnchor: link value = ${link}`)
+      this.activeNavSelection = link;
+      document.getElementById(anchorName).scrollIntoView(); 
     },
   },
 }
